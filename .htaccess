@@ -1,0 +1,4 @@
+<FilesMatch "\.(lottie)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

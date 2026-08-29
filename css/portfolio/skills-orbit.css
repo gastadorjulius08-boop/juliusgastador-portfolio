@@ -1,0 +1,431 @@
+/* RIGHT SIDE */
+
+.skills-orbit {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 600px;
+
+    perspective: 1200px;
+    transform-style: preserve-3d ;
+}
+
+@media (max-width: 1100px){
+    .skills-orbit {
+        min-height: 480px;
+        width: 100%;
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 768px){
+    .skills-orbit {
+        min-height: 360px;
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+}
+
+@media (max-width: 480px){
+    .skills-orbit {
+        min-height: 300px;
+        transform: scale(0.72);
+    }
+}
+/* Brain */
+.brain{
+    position:absolute;
+
+    width:245px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:10;
+
+    filter:
+        drop-shadow(0 0 10px #00d9ff)
+        drop-shadow(0 0 20px rgba(0,217,255,.8));
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.brain-base{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:300px;
+    height:80px;
+
+    transform:translate(-50%, 120px);
+
+    border-radius:50%;
+    border:2px solid #00d9ff;
+
+    background:rgba(0,217,255,.15);
+    box-shadow:
+        0 0 20px #00d9ff,
+        0 0 60px rgba(0,217,255,.8),
+        inset 0 0 25px rgba(0,217,255,.5);
+
+    z-index:1;
+
+    animation:pulseBase 2.5s ease-in-out infinite;
+}
+
+/*=========================
+      HOLOGRAM BEAM
+=========================*/
+
+.hologram-beam{
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 140px;
+    height: 240px;
+
+    transform: translate(-50%, -35px);
+
+    background: linear-gradient(
+        to top,
+        rgba(0,217,255,0),
+        rgba(0,217,255,.12),
+        rgba(0,217,255,.35),
+        rgba(0,217,255,0)
+    );
+
+    filter: blur(10px);
+
+    z-index: 2;
+
+    animation: beamPulse 2s ease-in-out infinite;
+}
+/*=========================
+    3D ORBIT RINGS
+=========================*/
+
+.orbit{
+    position: absolute;
+    
+    border: 3px solid rgba(0,217,255,.35);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+
+
+    box-shadow:
+    0 0 10px #00d9ff,
+    inset 0 0 12px rgba(0,217,255,.4);
+    z-index: 5;
+
+
+}
+/* ==========================
+   OUTER ORBIT
+========================== */
+
+.orbit-outer{
+    width:420px;
+    height:420px;
+
+    left:50%;
+    top:45%;
+
+    margin-left:-210px;
+    margin-top:-210px;
+
+    animation:outerRotate 18s linear infinite;
+}
+/* ==========================
+   INNER ORBIT
+========================== */
+
+.orbit-inner{
+    width:280px;
+    height:280px;
+
+    left:50%;
+    top:45%;
+
+    margin-left:-140px;
+    margin-top:-140px;
+
+    animation:innerRotate 12s linear infinite reverse;
+}
+/*==============icons======================*/
+.icon{
+    isolation:isolate;
+    position: absolute;
+    width: 55px;
+    height: 55px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transform-style: preserve-3d;
+
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+
+    filter:
+        drop-shadow(1px 1px 0 rgba(255,255,255,.35))
+        drop-shadow(2px 2px 0 rgba(0,217,255,.35))
+        drop-shadow(3px 3px 0 rgba(0,217,255,.25))
+        drop-shadow(4px 4px 0 rgba(0,217,255,.18))
+        drop-shadow(0 0 15px #00d9ff);
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.icon:hover img{
+
+    transform:
+        rotateX(-20deg)
+        rotateY(18deg)
+        scale(1.15)
+        translateZ(20px);
+
+    filter:
+        brightness(1.2)
+        drop-shadow(2px 2px 0 rgba(255,255,255,.45))
+        drop-shadow(4px 4px 0 rgba(0,217,255,.4))
+        drop-shadow(6px 6px 0 rgba(0,217,255,.3))
+        drop-shadow(8px 8px 0 rgba(0,217,255,.2))
+        drop-shadow(0 0 25px #00d9ff)
+        drop-shadow(0 0 45px cyan);
+}
+/* ===== OUTER ===== */
+
+.html{
+    top:-28px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.css{
+    left:-28px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.js{
+    right:-28px;
+    top:50%;
+    transform:translateY(-50%);
+}
+.vscode{
+    bottom:-28px;
+    left:50%;
+    transform:translateY(-50%);
+}
+/* ===== INNER ===== */
+
+.git{
+    width:70px;
+    height:70px;
+
+    top:-28px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.github{
+    bottom:-28px;
+    left:50%;
+    transform:translateX(-50%);
+}
+.icon.php {
+    width: 42px;
+    height: 42px;
+}
+
+.icon.mysql {
+    width: 62px;
+    height: 62px;
+}
+
+.php{
+    left:-28px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.mysql{
+    right:-28px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.icon.php img,
+.icon.mysql img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.php::before,
+.mysql::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    padding: 2px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 82%,
+        #00d9ff 92%,
+        #ffffff 96%,
+        #00d9ff 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: laserSpin 2s linear infinite;
+}
+/*=========================
+      HOLOGRAM PARTICLES
+=========================*/
+
+.particles{
+    position:absolute;
+    left:50%;
+    top:45%;
+    width:180px;
+    height:220px;
+    transform:translate(-50%,-20px);
+    z-index:3;
+    pointer-events:none;
+}
+
+.particles span{
+    position:absolute;
+    bottom:0;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#00d9ff;
+    box-shadow:0 0 12px #00d9ff;
+    animation:particleUp 3s linear infinite;
+}
+
+.particles span:nth-child(1){
+    left:20px;
+    animation-delay:0s;
+}
+
+.particles span:nth-child(2){
+    left:55px;
+    animation-delay:.5s;
+}
+
+.particles span:nth-child(3){
+    left:90px;
+    animation-delay:1s;
+}
+
+.particles span:nth-child(4){
+    left:120px;
+    animation-delay:1.5s;
+}
+
+.particles span:nth-child(5){
+    left:150px;
+    animation-delay:2s;
+}
+
+.particles span:nth-child(6){
+    left:75px;
+    animation-delay:2.5s;
+}
+/*=========================
+      SCAN LINE
+=========================*/
+
+.scan-line{
+    position:absolute;
+
+    left:0;
+    top:100%;
+
+    width:100%;
+    height:4px;
+
+    border-radius:50px;
+
+    background:#00d9ff;
+
+    box-shadow:
+        0 0 12px #00d9ff,
+        0 0 30px rgba(0,217,255,.9);
+
+    animation:scanBeam 1s linear infinite;
+}
+/*==============================
+        ENERGY RINGS
+==============================*/
+
+.energy-rings{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%, 90px);
+
+    width:300px;
+    height:80px;
+
+    pointer-events:none;
+    z-index:2;
+}
+
+.energy-rings span{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:100%;
+    height:100%;
+
+    border:2px solid rgba(0,217,255,.55);
+    border-radius:50%;
+
+    transform:translate(-50%,-50%) scale(.2);
+
+    opacity:0;
+
+    box-shadow:
+        0 0 12px #00d9ff,
+        0 0 35px rgba(0,217,255,.8);
+
+    animation:ringPulse 6s linear infinite;
+}
+
+.energy-rings span:nth-child(2){
+    animation-delay:1s;
+}
+
+.energy-rings span:nth-child(3){
+    animation-delay:2s;
+}

@@ -1,0 +1,142 @@
+
+/* =========================
+   ICON GLOW
+========================= */
+
+.workflow-icon{
+
+    animation:iconGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes iconGlow{
+
+    0%,100%{
+
+        box-shadow:
+        0 0 15px rgba(0,229,255,.25);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 35px rgba(0,229,255,.7);
+
+    }
+
+}
+
+
+/* =========================
+   CARD BORDER
+========================= */
+
+.workflow-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:20px;
+
+    padding:1px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,229,255,.9),
+        transparent,
+        rgba(0,229,255,.9)
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.workflow-card:hover::before{
+
+    opacity:1;
+}
+
+
+/* =========================
+   ICON ROTATE
+========================= */
+
+.workflow-card:hover .workflow-icon{
+
+    transform:rotate(360deg);
+
+    transition:.7s;
+}
+/* =========================
+   CONNECTOR ARROW ANIMATION
+========================= */
+@keyframes energyFlow{
+
+    0%{
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        box-shadow:
+            0 0 10px #00e5ff,
+            0 0 20px #00e5ff;
+
+    }
+
+    100%{
+
+        opacity:.4;
+
+    }
+
+}
+@keyframes arrowPulse{
+
+    0%,100%{
+
+        transform:rotate(45deg) scale(1);
+
+    }
+
+    50%{
+
+        transform:rotate(45deg) scale(1.15);
+
+    }
+
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.workflow-card h3{
+
+    transition:.3s;
+}
+
+.workflow-card:hover h3{
+
+    color:#00e5ff;
+}

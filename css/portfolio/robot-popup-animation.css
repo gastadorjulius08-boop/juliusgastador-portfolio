@@ -1,0 +1,249 @@
+/*=========================================
+ROBOT FLOAT
+=========================================*/
+@keyframes robotFloat{
+
+    0%,100%{
+
+        transform:translateX(-50%) scale(.50) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) scale(.50) translateY(-10px);
+
+    }
+
+}
+/*=========================================
+ROBOT WAVE
+=========================================*/
+@keyframes robotWave{
+
+    0%,100%{
+
+        transform:rotate(0deg);
+
+    }
+
+    20%{
+
+        transform:rotate(-35deg);
+
+    }
+
+    40%{
+
+        transform:rotate(10deg);
+
+    }
+
+    60%{
+
+        transform:rotate(-25deg);
+
+    }
+
+    80%{
+
+        transform:rotate(5deg);
+
+    }
+
+}
+/*=========================================
+ROBOT BASE PULSE
+=========================================*/
+@keyframes baseGlow{
+
+    0%,100%{
+
+        filter:
+            drop-shadow(0 0 8px #53c8ff)
+            drop-shadow(0 0 18px #53c8ff);
+
+        opacity:.85;
+
+    }
+
+    50%{
+
+        filter:
+            drop-shadow(0 0 18px #53c8ff)
+            drop-shadow(0 0 40px #53c8ff)
+            drop-shadow(0 0 60px #53c8ff);
+
+        opacity:1;
+
+    }
+
+}
+/*=========================================
+ROBOT EYES BLINK
+=========================================*/
+@keyframes robotBlink{
+
+    0%, 47%, 49%, 97%, 99%, 100%{
+
+        transform:translateX(-70%) scaleY(1);
+
+    }
+
+    48%{
+
+        transform:translateX(-70%) scaleY(.08);
+
+    }
+
+    98%{
+
+        transform:translateX(-70%) scaleY(.08);
+
+    }
+
+}
+/*=========================================
+ROBOT CORE PULSE
+=========================================*/
+@keyframes corePulse{
+
+    0%,100%{
+
+        transform:translateX(-90%) scale(1);
+
+        filter:drop-shadow(0 0 4px #53c8ff)
+               drop-shadow(0 0 10px #53c8ff);
+        opacity:.9;
+
+    }
+
+    50%{
+
+        transform:translateX(-90%) scale(1.18);
+
+        filter:
+            drop-shadow(0 0 10px #53c8ff)
+            drop-shadow(0 0 25px #53c8ff)
+            drop-shadow(0 0 45px #53c8ff);
+        opacity:1;    
+
+    }
+
+}
+/*=========================================
+HOLOGRAM PARTICLES ANIMATION
+=========================================*/
+@keyframes particleFloat{
+
+    0%{
+
+        transform:
+            translateY(40px)
+            scale(.2);
+
+        opacity:0;
+
+    }
+
+    30%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-60px)
+            scale(1);
+
+        opacity:0;
+
+    }
+
+}
+/*=========================================
+laser ANIMATION
+=========================================*/
+@keyframes laserRun{
+
+    0%{
+
+        top:0;
+        left:0;
+
+    }
+
+    25%{
+
+        top:0;
+        left:calc(100% - 10px);
+
+    }
+
+    50%{
+
+        top:calc(100% - 10px);
+        left:calc(100% - 10px);
+
+    }
+
+    75%{
+
+        top:calc(100% - 10px);
+        left:0;
+
+    }
+
+    100%{
+
+        top:0;
+        left:0;
+
+    }
+
+}
+/*=========================================
+MESSAGE ANIMATION
+=========================================*/
+@keyframes robotHello{
+
+    0%,60%,100%{
+
+        opacity:0;
+
+        transform:translateY(10px) scale(.8);
+
+    }
+
+    10%,40%{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+/*=========================================
+CONTINUE BUTTON ANIMATION
+=========================================*/
+@keyframes buttonGlow{
+
+    0%,100%{
+
+        box-shadow:
+            0 0 8px rgba(83,200,255,.35);
+
+    }
+
+    50%{
+
+        box-shadow:
+            0 0 18px #53c8ff,
+            0 0 35px rgba(83,200,255,.8);
+
+    }
+
+}

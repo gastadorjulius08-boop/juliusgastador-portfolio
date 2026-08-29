@@ -1,0 +1,497 @@
+/*=========================================
+ROBOT ENGINE
+=========================================*/
+
+.ai-robot{
+
+    position:absolute;
+
+    top:60px;
+    left:50%;
+
+    transform:translateX(-50%)
+    scale(0.50);
+    transform-origin:top center;
+
+    animation:robotFloat 3s ease-in-out infinite;
+
+}
+
+.robot-model{
+
+    position:relative;
+
+    width:320px;
+    height:340px;
+
+    margin:35px auto 0;
+
+}
+.robot-model img{
+
+    position:absolute;
+
+    user-select:none;
+
+    pointer-events:none;
+
+}
+/*=========================================
+AI POPUP
+=========================================*/
+
+#ai-popup{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.78);
+
+    backdrop-filter:blur(0px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition: opacity .45s ease,
+                backdrop-filter .45s ease,
+                visibility .45s;
+
+    z-index:99999;
+
+}
+
+#ai-popup.show{
+
+    opacity:1;
+    visibility:visible;
+    backdrop-filter:blur(8px);
+    pointer-events:auto;
+
+}
+/*------title message effect-------*/
+#ai-title{
+
+    color:#53c8ff;
+    margin-bottom:12px;
+
+    opacity:0;
+    transform:translateY(15px);
+
+    transition:.5s;
+
+}
+#ai-popup.show #ai-title{
+
+    opacity:1;
+    transform:translateY(0);
+    transition-delay:.35s;
+}
+#ai-message{
+
+    color:#d9e8f8;
+
+    line-height:1.8;
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:.5s;
+
+}
+#ai-popup.show #ai-message{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition-delay:.55s;
+
+}
+#ai-close{
+
+    margin-top:25px;
+    opacity:0;
+
+    transform:translateY(20px);
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #0a84ff,
+        #53c8ff
+    );
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:
+        background .35s ease,
+        transform .2s ease,
+        box-shadow .15s ease,
+        color .15s ease;
+
+    box-shadow:
+        0 0 10px rgba(83,200,255,.25);
+
+}
+#ai-close:hover{
+
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:
+    0 0 6px #53c8ff,
+    0 0 12px #53c8ff,
+    0 0 20px rgba(83,200,255,.45);
+
+}
+#ai-close:active{
+
+    transform:scale(.96);
+
+    box-shadow:
+        0 0 18px #53c8ff,
+        0 0 35px #53c8ff;
+
+}
+
+#ai-popup.show #ai-close{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition-delay:.75s, 0s, 0s, 0s, 0s;
+
+}
+
+.ai-card{
+
+    position:relative;
+    width:420px;
+    max-width:92%;
+
+    padding:280px 40px 40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:rgba(8,20,40,.96);
+
+    border:1px solid rgba(83,200,255,.35);
+
+    box-shadow:
+        0 0 25px rgba(83,200,255,.25),
+        0 0 60px rgba(83,200,255,.18);
+
+    transform:scale(.6) translateY(40px);
+    overflow:hidden;
+
+    transition:.4s;
+    z-index:2;
+
+}
+
+#ai-popup.show .ai-card{
+
+    transform:scale(1) translateY(0);
+
+}
+/*=========================================
+LASER BORDER V3
+=========================================*/
+.laser-border{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.laser-dot{
+
+    position:absolute;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#53c8ff;
+
+    box-shadow:
+        0 0 10px #53c8ff,
+        0 0 20px #53c8ff,
+        0 0 40px #53c8ff;
+
+    animation:laserRun 5s linear infinite;
+
+}
+
+/* Hologram */
+
+.robot-base{
+    width:200px;
+    position:absolute;
+    left:50%;
+    bottom:-120px;
+    transform:translateX(-50%)
+        rotateX(70deg)
+        scaleX(1.15);
+    filter:
+        drop-shadow(0 0 15px #53c8ff)
+        drop-shadow(0 0 35px #53c8ff); 
+    animation:baseGlow 2.5s ease-in-out infinite; 
+
+    z-index:0;
+}
+   .robot-head,
+   .robot-body,
+   .robot-core,
+   .robot-legs,
+   .robot-left-arm,
+   .robot-right-arm,
+   .robot-eyes,
+   .robot-antenna{
+
+    z-index:5;
+    
+}
+
+/* Legs */
+
+.robot-legs{
+    width:185px;
+
+    left:50%;
+    bottom:-33px;
+
+    transform:translateX(-53%);
+
+    z-index:20;
+
+
+}
+
+/* Body */
+
+.robot-body{
+    width:135px;
+    left:50%;
+    bottom:130px;
+    transform:translateX(-49%);
+}
+
+/* Core */
+
+.robot-core{
+    width:28px;
+    left:49%;
+    bottom:200px;
+    transform:translateX(-90%);
+    border-radius:50%;
+    box-shadow: 0 0 8px #53c8ff,
+                0 0 20px #53c8ff;
+
+    animation:corePulse 1.8s ease-in-out infinite;
+}
+
+/* Head */
+
+.robot-head{
+    width:120px;
+    left:50%;
+    bottom:250px;
+    transform:translateX(-50%);
+
+}
+
+/* Eyes */
+
+.robot-eyes{
+    width:38px;
+    left:50%;
+    bottom:280px;
+    transform:translateX(-70%);
+
+    animation:robotBlink 5s infinite;
+    transform-origin:center;
+}
+
+/* Antenna */
+
+.robot-antenna{
+    width:45px;
+    left:50%;
+    bottom:350px;
+    transform:translateX(-65%);
+}
+
+/* Left Arm */
+
+.robot-left-arm{
+    width:95px;
+    left:210px;
+    bottom:140px;
+}
+
+/* Right Arm */
+
+.robot-upper-arm{
+
+    width:120px;
+
+    right:235px;
+
+    bottom:197px;
+
+    z-index:40;
+
+    transform-origin:45% 85%;
+    animation:robotWave 1s ease-in-out infinite;
+}
+.robot-lower-arm{
+
+    width:90px;
+
+    right:210px;
+
+    bottom:180px;
+
+    z-index:41;
+
+}
+/*=========================================
+HOLOGRAM PARTICLES
+=========================================*/
+
+.hologram-particles{
+
+    position:absolute;
+
+    left:50%;
+    bottom:40px;
+
+    width:180px;
+    height:100px;
+
+    transform:translateX(-50%);
+
+    pointer-events:none;
+
+}
+
+.hologram-particles span{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#53c8ff;
+    box-shadow:
+    0 0 12px #53c8ff,
+    0 0 25px #53c8ff,
+    0 0 40px #53c8ff;
+
+    animation:particleFloat 1s linear infinite;
+
+}
+.hologram-particles span:nth-child(1){
+
+    left:10%;
+
+    animation-delay:0s;
+
+}
+
+.hologram-particles span:nth-child(2){
+
+    left:28%;
+
+    animation-delay:.5s;
+
+}
+
+.hologram-particles span:nth-child(3){
+
+    left:45%;
+
+    animation-delay:1s;
+
+}
+
+.hologram-particles span:nth-child(4){
+
+    left:62%;
+
+    animation-delay:1.5s;
+
+}
+
+.hologram-particles span:nth-child(5){
+
+    left:80%;
+
+    animation-delay:2s;
+
+}
+
+.hologram-particles span:nth-child(6){
+
+    left:95%;
+
+    animation-delay:2.5s;
+
+}
+
+.robot-speech{
+
+    position:absolute;
+
+    right:-120px;
+
+    top:20px;
+
+    width:190px;
+
+    padding:10px 15px;
+
+    border-radius:18px;
+
+    background:#53c8ff;
+
+    color:#071320;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    font-weight:600;
+
+}
+#ai-close.ready{
+
+    animation:buttonGlow 1.6s ease-in-out infinite;
+
+}
