@@ -171,7 +171,13 @@ form.addEventListener("submit", async (e) => {
         if(result.status === 200){
 
             form.reset();
-
+            
+              // Google Analytics - track form submission
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Contact Form',
+                    'event_label': 'Request a Free Quote'
+                });
+                    
               // Play send sound immediately
                cardOpenSound.currentTime = 0;
                cardOpenSound.play();
